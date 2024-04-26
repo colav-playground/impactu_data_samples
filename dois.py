@@ -18,7 +18,10 @@ for doi in dois:
         d['OpenAlex'] = j.json().get('id')
     if d:
         DOIS.append(d)
+        if doi.lower() != j.json().get('doi').replace('https://doi.org/','').lower():
+            break
     sleep(0.1)
+    #break
 
 f = open('dois_scienti_found_in_OpenAlex.json','w')
 json.dump(DOIS,f)
