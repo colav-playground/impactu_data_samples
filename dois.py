@@ -19,4 +19,7 @@ for doi in dois:
     if d:
         DOIS.append(d)
     sleep(0.1)
-    #break
+
+f = open('dois_scienti_found_in_OpenAlex.json','w')
+json.dump(DOIS,f)
+f.close()
